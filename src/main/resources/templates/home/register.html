@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="card-body">
+    <form th:action="@{/register}" method="post" th:object="${user}">
+        <div>
+            <label th:for="login">Login</label>
+            <p th:input type="text" placeholder="Login">
+                <input th:field="*{login}"/>
+            <p th:errors="*{login}"></p>
+        </div>
+        <div>
+            <label th:for="firstName">First Name</label>
+            <p th:input type="text" placeholder="first Name">
+                <input th:field="*{firstName}"/>
+            <p th:errors="*{firstName}"></p>
+        </div>
+        <div>
+            <label th:for="lastName">Last Name</label>
+            <p th:input type="text" placeholder="last Name">
+                <input th:field="*{lastName}"/>
+            <p th:errors="*{lastName}"></p>
+        </div>
+        <div>
+            <label th:for="password">Password</label>
+            <p th:input type="text" placeholder="password">
+                <input th:field="*{password}"/>
+            <p th:errors="*{password}"></p>
+        </div>
+        <input type="hidden" th:field="*{id}"/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+

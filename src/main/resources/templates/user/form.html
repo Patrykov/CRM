@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Add User
+        </div>
+        <div class="card-body">
+            <div th:fragment="add-form">
+                <div>
+                    <label th:for="login">Login</label>
+                    <p th:input type="text" placeholder="Login">
+                        <input th:field="*{login}"/>
+                    <p th:errors="*{login}"></p>
+                </div>
+                <div>
+                    <label th:for="firstName">First Name</label>
+                    <p th:input type="text" placeholder="first Name">
+                        <input th:field="*{firstName}"/>
+                    <p th:errors="*{firstName}"></p>
+                </div>
+                <div>
+                    <label th:for="lastName">Last Name</label>
+                    <p th:input type="text" placeholder="last Name">
+                        <input th:field="*{lastName}"/>
+                    <p th:errors="*{lastName}"></p>
+                </div>
+                <div>
+                    <label th:for="password">Password</label>
+                    <p th:input type="text" placeholder="password">
+                        <input th:field="*{password}"/>
+                    <p th:errors="*{password}"></p>
+                </div>
+                <input type="hidden" th:field="*{id}"/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

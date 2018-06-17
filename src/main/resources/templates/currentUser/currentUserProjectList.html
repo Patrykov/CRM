@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div>
+    <a th:href="@{/userHome}">Home Page</a>
+</div>
+<br/>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-area-chart"></i> <b>Project List</b>
+    </div>
+    <br/>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr>
+                    <th>Id</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Activity</th>
+                </tr>
+                <tr th:each="project: ${listUserProject}">
+                    <td th:text="${project.id}"/>
+                    <td th:text="${project.created}"/>
+                    <td th:text="${project.updated}"/>
+                    <td th:text="${project.name}"/>
+                    <td th:text="${project.description}"/>
+                    <td th:text="${project.activity}"/>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

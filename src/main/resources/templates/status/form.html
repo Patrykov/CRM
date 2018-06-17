@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Add Priority
+        </div>
+        <div class="card-body">
+            <div th:fragment="add-form-status">
+                <div>
+                    <label th:for="name">Name</label>
+                    <p th:input type="text" placeholder="name">
+                        <input th:field="*{name}"/>
+                    <p th:errors="*{name}"></p>
+                </div>
+                <div>
+                    <label th:for="activity">Activity</label>
+                    <p th:input type="text" placeholder="Activity">
+                        <input type="checkbox" th:field="*{activity}"/>
+                    <p th:errors="*{activity}"></p>
+                </div>
+                <div>
+                    <label th:for="sort">Sort</label>
+                    <p th:input type="text" placeholder="sort">
+                        <input th:field="*{sort}"/>
+                    <p th:errors="*{sort}"></p>
+                </div>
+                <input type="hidden" th:field="*{id}"/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

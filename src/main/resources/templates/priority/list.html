@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Priority List
+        </div>
+        <div>
+            <a th:href="@{/priority/add}">ADD Priority</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Activity</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr th:each="priority: ${listPriority}">
+                        <td th:text="${priority.id}"/>
+                        <td th:text="${priority.name}"/>
+                        <td th:text="${priority.activity}"/>
+                        <td>
+                            <a th:href="@{/priority/delete/{id}/(id=${priority.id})}">DELETE</a>
+                            <a th:href="@{/priority/update/{id}/(id=${priority.id})}">EDIT</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

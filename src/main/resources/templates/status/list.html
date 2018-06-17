@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Status List
+        </div>
+        <div>
+            <a th:href="@{/status/add}">ADD Status</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Activity</th>
+                        <th>Sort</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr th:each="status: ${listStatus}">
+                        <td th:text="${status.id}"/>
+                        <td th:text="${status.name}"/>
+                        <td th:text="${status.activity}"/>
+                        <td th:text="${status.sort}"/>
+                        <td>
+                            <a th:href="@{/status/delete/{id}/(id=${status.id})}">DELETE</a>
+                            <a th:href="@{/status/update/{id}/(id=${status.id})}">EDIT</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>Hello My Friend: <span sec:authentication="name"></span></h1>
+    <div>
+        <b>The last five projects</b>
+    </div>
+    <br/>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Activity</th>
+            <th>Users</th>
+        </tr>
+        <tr th:each="project: ${fiveProject}">
+            <td th:text="${project.id}"/>
+            <td th:text="${project.created}"/>
+            <td th:text="${project.updated}"/>
+            <td th:text="${project.name}"/>
+            <td th:text="${project.description}"/>
+            <td th:text="${project.activity}"/>
+            <td>
+                <span th:each="user: ${project.users}">
+                    <b th:text="${user.lastName}"/>
+                </span>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <div>
+        <b>The last activities</b>
+    </div>
+    <br/>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Created</th>
+        </tr>
+        <tr th:each="activity: ${fiveActivity}">
+            <td th:text="${activity.id}"/>
+            <td th:utext="${activity.title}"/>
+            <td th:text="${activity.created}"/>
+        </tr>
+    </table>
+</section>
+</body>
+</html>

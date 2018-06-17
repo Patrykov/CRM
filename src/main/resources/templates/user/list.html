@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> User List
+        </div>
+        <div>
+            <a th:href="@{/user/add}">ADD User</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <tr>
+                        <th>Id</th>
+                        <th>login</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>password</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr th:each="user: ${listUser}">
+                        <td th:text="${user.id}"/>
+                        <td th:text="${user.login}"/>
+                        <td th:text="${user.firstName}"/>
+                        <td th:text="${user.lastName}"/>
+                        <td th:text="${user.password}"/>
+                        <td>
+                            <a th:href="@{/user/delete/{id}/(id=${user.id})}">DELETE</a>
+                            <a th:href="@{/user/update/{id}/(id=${user.id})}">EDIT</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

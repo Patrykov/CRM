@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Add Project
+        </div>
+        <div class="card-body">
+            <form th:action="@{/project/add}" method="post" th:object="${project}">
+                <p th:include="project/form :: add-form-project"></p>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

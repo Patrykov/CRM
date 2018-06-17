@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="main">
+<body>
+<section layout:fragment="content">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Add Task
+        </div>
+        <div class="card-body">
+            <div th:fragment="add-form-task">
+                <div>
+                    <label th:for="subject">Subject</label>
+                    <p th:input type="text" placeholder="subject">
+                        <input th:field="*{subject}"/>
+                    <p th:errors="*{subject}"></p>
+                </div>
+                <div>
+                    <label th:for="description">Description</label>
+                    <p th:input type="text" placeholder="Description">
+                        <input th:field="*{description}"/>
+                    <p th:errors="*{description}"></p>
+                </div>
+                <div>
+                    <label th:for="project">Project</label>
+                    <p th:input type="text" placeholder="projects">
+                        <select th:field="*{project}">
+                            <option th:each="project : ${projects}"
+                                    th:value="${project.id}"
+                                    th:text="${project.name}"/>
+                        </select>
+                </div>
+                <div>
+                    <label th:for="users">Users</label>
+                    <p th:input type="text" placeholder="users">
+                        <select th:field="*{user}">
+                            <option th:each="user : ${users}"
+                                    th:value="${user.id}"
+                                    th:text="${user.lastName}"/>
+                        </select>
+                </div>
+                <div>
+                    <label th:for="priority">Priority</label>
+                    <p th:input type="text" placeholder="priority">
+                        <select th:field="*{priority}">
+                            <option th:each="priority : ${priorities}"
+                                    th:value="${priority.id}"
+                                    th:text="${priority.name}"/>
+                        </select>
+                </div>
+                <div>
+                    <div>
+                        <label th:for="status">Status</label>
+                        <p th:input type="text" placeholder="status">
+                            <select th:field="*{status}">
+                                <option th:each="status : ${statuses}"
+                                        th:value="${status.id}"
+                                        th:text="${status.name}"/>
+                            </select>
+                    </div>
+                    <input type="hidden" th:field="*{id}"/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

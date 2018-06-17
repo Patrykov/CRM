@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-area-chart"></i> Update Status
+    </div>
+    <div class="card-body">
+        <form method="post" th:action="@{/userTaskUpdate}" th:object="${userUpdate}">
+            <div>
+                <label th:for="status">Status</label>
+                <p th:input type="text" placeholder="status">
+                    <select th:field="*{status}">
+                        <option th:each="status : ${statuses}"
+                                th:value="${status.id}"
+                                th:text="${status.name}"/>
+                    </select>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
