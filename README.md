@@ -4,24 +4,25 @@ This is a project which include a part of functionality what offered dedicated s
 
 # Technologies used
 
-Java
-Spring
-Thymeleaf
-Hibernate
-Junit
-Bootstrap
+* Java
+* Spring
+* Thymeleaf
+* Hibernate
+* Junit
+* Bootstrap
 
 # Functionality
 
-Login Page with role check.
-Password hashing at creating account.
+* Login Page with role check.
+* Password hashing at creating account.<br/> 
 
-2 roles - User, Admin.
-CRUD options to: User, Project, Task, Status, Priority. 
-Admin can manage of projects and users.
-Also can assign a task to project or to User.
-After login at home page the last activities of users and admin are displayed.
+ 2 roles - User, Admin.<br/> 
+ Admin role:
+* CRUD options to: User, Project, Task, Status, Priority. 
+* Admin can manage of projects and users.
+* Also can assign a task to project or to User.
+* After login at home page the last activities of users and admin are displayed.
 
-
-Users can manage statuses of theirs projects.
-After login at home page the last activities of user are displayed.
+User role:
+* Users can manage statuses of theirs projects.
+* After login at home page the last activities of user are displayed.
